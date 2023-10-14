@@ -11,7 +11,7 @@ import com.toponpayment.sdk.callback.CallBackFunction;
 import com.toponpayment.sdk.callback.InitCallBackFunction;
 import com.toponpayment.sdk.data.UserInfo;
 import com.toponpayment.sdk.data.init.YoleInitConfig;
-//import com.yolesdk.sdk.ru_sms.SendSms;
+import com.toponpayment.sdk.ru_sms.SendSms;
 import com.toponpayment.sdk.tool.NetworkRequest;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class YoleSdkBase {
     protected NetworkRequest request = null;
     /**用户信息(通过用户设置 和 请求的返回。组装成的数据)**/
     public UserInfo user =  null;
-//    protected SendSms sms =  null;
+    protected SendSms sms =  null;
     /**广告sdk初始化定时器*/
     protected Timer bigosspInitBackTimer = null;
 
@@ -46,14 +46,15 @@ public class YoleSdkBase {
         this.init(_var1,_config);
 
 
-//        //初始化 ruSms的回调
+        //初始化 ruSms的回调
 //        if(_config.isRuSms() == true) {
 //            YoleSdkMgr.getsInstance().initRuSms(next1);
 //        }
+
         CallBackFunction next1 = new CallBackFunction(){
             @Override
             public void onCallBack(boolean result, String info1, String info2) {
-
+                Log.i(TAG,"initBasicSdk next1:"+result);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -74,10 +75,16 @@ public class YoleSdkBase {
         CallBackFunction next2 = new CallBackFunction(){
             @Override
             public void onCallBack(boolean result, String info1, String info2) {
-                Log.i(TAG,"initBasicSdk:"+result);
+                Log.i(TAG,"initBasicSdk next2:"+result);
                 if(result == true){
                     _initBack.success(user.initSdkData);
-                    next1.onCallBack(false,null,null);
+                    if(_config.isRuSms() == true) {
+                        YoleSdkMgr.getsInstance().initRuSms(next1);
+                    }
+                    else
+                    {
+                        next1.onCallBack(false,null,null);
+                    }
                 }else{
                     _initBack.fail(info1);
                 }
@@ -91,8 +98,8 @@ public class YoleSdkBase {
         request = new NetworkRequest();
         isDebugger = _config.isDebug();
         user = new UserInfo(var1,_config);
-//        if(_config.isRuSms() == true)
-//            sms = new SendSms(var1);
+        if(_config.isRuSms() == true)
+            sms = new SendSms(var1);
 
     }
 

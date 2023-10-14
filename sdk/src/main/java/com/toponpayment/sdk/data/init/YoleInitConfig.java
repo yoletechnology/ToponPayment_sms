@@ -69,15 +69,31 @@ public class YoleInitConfig {
     public  boolean isDcb() {
         return this.dcbConfig != null;
     }
+    public  YoleInitConfig setDcbSwitch(boolean var1) {
+        if(var1 == true)
+        {
+            this.dcbConfig = new YoleInitDcbConfig();
+        }
+        return this;
+    }
     public  YoleInitConfig setDcbConfig(YoleInitDcbConfig var1) {
         this.dcbConfig = var1;
         return this;
     }
+
     /******************************************************/
     /*******************Ru_Sms信息**************************/
     /******************************************************/
     public  boolean isRuSms() {
         return this.ruSmsConfig != null;
+    }
+    public  YoleInitConfig setRuSmsSwitch(boolean var1)
+    {
+        if(var1 == true)
+        {
+            this.ruSmsConfig = new YoleInitRuSmsConfig();
+        }
+        return this;
     }
     public  YoleInitConfig setRuSmsConfig(YoleInitRuSmsConfig var1) {
         this.ruSmsConfig = var1;
