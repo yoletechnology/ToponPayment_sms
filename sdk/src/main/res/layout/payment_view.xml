@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <!--背景-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/bg"></ImageView>
+
+
+        <!--返回按钮-->
+        <Button
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/backbtn">
+        </Button>
+
+
+        <!--订单信息-->
+        <ImageView
+            android:id="@+id/iv_ing"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/icon"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="@string/todo">
+        </ImageView>
+        <TextView
+            android:layout_below="@id/iv_ing"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Hello World!">
+        </TextView>
+        <TextView
+            android:layout_below="@id/name"
+            android:id="@+id/pric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textColor = "#000000"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:text="@string/default_price">
+        </TextView>
+        <TextView
+            android:layout_below="@id/pric"
+            android:id="@+id/der"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:text="@string/default_order">
+        </TextView>
+
+
+<!--        &lt;!&ndash;支付方式&ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:layout_below="@id/der"-->
+<!--            android:id="@+id/waybg"-->
+<!--            android:src="@drawable/paybg"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_width="350dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_marginTop="10dp">-->
+<!--        </ImageView>-->
+<!--        <ImageView-->
+<!--            android:layout_below="@id/waybg"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginTop="-50dp"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:contentDescription="@string/todo"-->
+<!--            android:src="@drawable/payicon"-->
+<!--            tools:ignore="ImageContrastCheck">-->
+<!--        </ImageView>-->
+<!--        <TextView-->
+<!--            android:layout_below="@id/waybg"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="-45dp"-->
+<!--            android:layout_marginLeft="120dp"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="23sp"-->
+<!--            android:text="@string/mtn_monm" >-->
+<!--        </TextView>-->
+
+
+        <!--手机号-->
+        <ImageView
+            android:layout_below="@id/der"
+            android:id="@+id/phnbg"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/todo"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/phongbg"
+            tools:ignore="ImageContrastCheck">
+        </ImageView>
+        <TextView
+            android:layout_below="@id/phnbg"
+            android:id="@+id/phonetable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-70dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:text="@string/valid_phone_number" >
+        </TextView>
+        <TextView
+            android:layout_below="@id/phnbg"
+            android:id="@+id/phonetable1"
+            android:layout_width="70dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="-54dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="+007" >
+        </TextView>
+        <EditText
+            android:layout_below="@id/phnbg"
+            android:id="@+id/phone"
+            android:layout_width="350dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="-54dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:inputType="phone"
+            android:background="@null"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLength="11">
+        </EditText>
+
+
+        <!--购买按钮-->
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/todo"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:text="立即支付"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/btu"
+            >
+        </Button>
+</RelativeLayout >

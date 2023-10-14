@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_price">CN 168.00</string>
+    <string name="default_order">Номер заказа：32341353549447611</string>
+    <string name="todo">TODO</string>
+    <string name="default_phone">xxxxxxx</string>
+    <string name="payment_method">Метод оплаты</string>
+    <string name="mtn_monm">mtn_monm</string>
+
+    <string name="valid_phone_number">Введите номер телефона</string>
+    <string name="results">Результаты выплат</string>
+    <string name="format_error">Mobile number format error！</string>
+    <string name="cancel">Платежи отменяются</string>
+    <string name="order">Номер заказа</string>
+	<string name="payment">Подтвердить платеж</string>
+    <string name="cpcode_error">Ошибка CpCode </string>
+    <string name="parameter_error">Ошибка параметра</string>
+    <string name="amount_error">"Ошибка Amount "</string>
+    <string name="countrycode_error">Ошибка CountryCode</string>
+    <string name="mcc_error">Ошибка Mcc</string>
+    <string name="mnc_error">Ошибка Mnc</string>
+    <string name="payordernum_error">Ошибка PayOrderNum</string>
+
+
+</resources>

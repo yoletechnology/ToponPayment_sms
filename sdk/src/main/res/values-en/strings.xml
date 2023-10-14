@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_price">CN 168.00</string>
+    <string name="default_order">Order：32341353549447611</string>
+    <string name="todo">TODO</string>
+    <string name="default_phone">xxxxxxx</string>
+    <string name="payment_method">Payment method</string>
+    <string name="mtn_monm">mtn_monm</string>
+
+    <string name="valid_phone_number">Valid phone number</string>
+    <string name="results">Payment results</string>
+    <string name="format_error">Mobile number format error！</string>
+    <string name="cancel">Payment cancellation</string>
+    <string name="order">Order</string>
+	<string name="payment">immediate payment</string>
+    <string name="parameter_error">Parameter Error</string>
+    <string name="cpcode_error">CpCode Error</string>
+    <string name="amount_error">Amount Error</string>
+    <string name="countrycode_error">CountryCode Error</string>
+    <string name="mcc_error">Mcc Error</string>
+    <string name="mnc_error">Mnc Error</string>
+    <string name="payordernum_error">PayOrderNum  Error</string>
+
+
+</resources>

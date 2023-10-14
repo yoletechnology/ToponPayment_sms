@@ -1,0 +1,15 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+
+    }
+}
+//可以用git上的项目名
+rootProject.name = "ToponPayment_sms"
+include ':app'
+//sdk的目录名称，但是不能和git上的项目名一样，
+include ':sdk'
