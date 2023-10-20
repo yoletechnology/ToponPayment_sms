@@ -3,13 +3,5 @@
     package="com.toponpayment.sdk">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <application>
 
-        <activity
-            android:name=".dcb.PaymentView"
-            android:exported="true"
-            android:theme="@style/AppTheme">
-        </activity>
-
-    </application>
 </manifest>

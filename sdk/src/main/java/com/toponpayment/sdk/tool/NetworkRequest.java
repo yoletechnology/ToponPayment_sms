@@ -6,6 +6,8 @@ import com.toponpayment.sdk.YoleSdkMgr;
 
 import org.json.JSONObject;
 
+import okhttp3.HttpUrl;
+
 public class NetworkRequest {
     public String TAG = "Yole_NetworkRequest";
     public void initAppBySdk(String mobile,String gaid,String userAgent,String imei,String mac,String countryCode,String mcc,String mnc,String cpCode) throws Exception {
@@ -40,53 +42,43 @@ public class NetworkRequest {
         Log.d(TAG, "initAppBySdk"+res);
         YoleSdkMgr.getsInstance().user.decodeInitAppBySdk(res);
     }
-    public void createDCBInvoiceBySdk(String cpCode,String mobile,String amount,String countryCode,String mcc,String mnc,String orderNumber,String paymentKey) throws Exception {
-
-        JSONObject formBody = new JSONObject ();
-        if(cpCode.length() > 0)
-            formBody.put("cpCode",cpCode);
-        if(mobile.length() > 0)
-            formBody.put("mobile",mobile);
-        if(amount.length() > 0)
-            formBody.put("amount",amount);
-        if(countryCode.length() > 0)
-            formBody.put("countryCode",countryCode);
-        if(mcc.length() > 0)
-            formBody.put("mcc",mcc);
-        if(mnc.length() > 0)
-            formBody.put("mnc",mnc);
-        if(orderNumber.length() > 0)
-            formBody.put("orderNumber",orderNumber);
-        if(paymentKey.length() > 0)
-            formBody.put("paymentKey",paymentKey);
-
-        String res = NetUtil.sendPost("api/RUPayment/createDCBInvoiceBySdk",formBody);
-        Log.d(TAG, "createDCBInvoiceBySdk"+res);
-        YoleSdkMgr.getsInstance().user.decodePaymentResults(res);
-    }
 
     /**获取支付策略*/
     /**
      *
-     * @param countryCode   国家码         CH
+     * @param paymentSmsId   支付短信指令id
      */
-    public void getPaymentSms(String countryCode) throws Exception {
-        JSONObject formBody = new JSONObject ();
-        if(countryCode.length() > 0)
-            formBody.put("countryCode",countryCode);
+    public void getPaymentSms(String paymentSmsId) throws Exception {
+        String formBody = "";
+        formBody += "paymentSmsId="+paymentSmsId;
 
-        String res = NetUtil.sendPost("api/payment/getPaymentSms",formBody);
-        Log.d(TAG, "getPaymentSms"+res);
+        String res = NetUtil.sendGet("api/RUPayment/getRUSmsCode",formBody);
+        Log.d(TAG, "getRUSmsCode"+res);
         YoleSdkMgr.getsInstance().user.getPaymentSms(res);
     }
 
     public void smsPaymentNotify(String payOrderNum,String paymentStatus) throws Exception {
-        JSONObject formBody = new JSONObject ();
-        formBody.put("payOrderNum",payOrderNum);
-        formBody.put("paymentStatus",paymentStatus);
 
-        String res = NetUtil.sendPost("api/payment/smsPaymentNotify",formBody);
-        Log.d(TAG, "smsPaymentNotify"+res);
+//        String url. = "https://api.yolesdk.com/api/RUPayment/saveRUSmsPayRecord";
+
+
+        JSONObject formBody = new JSONObject ();
+        formBody.put("smsText","23STc1nyzL");
+        formBody.put("paymentId","5");
+        formBody.put("amount","100");
+        formBody.put("orderNumber",payOrderNum);
+        formBody.put("smsStatus",paymentStatus);
+        
+//        HttpUrl.Builder httpBuilder = HttpUrl.parse(url).newBuilder();
+//        httpBuilder.addQueryParameter("smsText","23STc1nyzL");
+//        httpBuilder.addQueryParameter("paymentId","5");
+//        httpBuilder.addQueryParameter("amount","100");
+//        httpBuilder.addQueryParameter("orderNumber",payOrderNum);
+//        httpBuilder.addQueryParameter("smsStatus",paymentStatus);
+
+
+        String res = NetUtil.sendPost("api/RUPayment/saveRUSmsPayRecord",formBody);
+        Log.d(TAG, "saveRUSmsPayRecord"+res);
         YoleSdkMgr.getsInstance().user.smsPaymentNotify(res);
     }
 }

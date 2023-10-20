@@ -26,8 +26,6 @@ public class InitSdkData {
     public boolean adsOpen = false;
     /**支持小数点位数*/
     public int currencyDecimal = 0;
-    /**方式*/
-    public PayType payType = PayType.UNAVAILABLE;
     /**区号*/
     public String areaCode = "";
 }

@@ -46,10 +46,6 @@ public class YoleSdkBase {
         this.init(_var1,_config);
 
 
-        //初始化 ruSms的回调
-//        if(_config.isRuSms() == true) {
-//            YoleSdkMgr.getsInstance().initRuSms(next1);
-//        }
 
         CallBackFunction next1 = new CallBackFunction(){
             @Override
@@ -155,7 +151,7 @@ public class YoleSdkBase {
             @Override
             public void run() {
                 try {
-                    request.getPaymentSms(user.getCountryCode());
+                    request.getPaymentSms("1");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -172,40 +168,5 @@ public class YoleSdkBase {
             initRuSmsBack.onCallBack(false,info,"");
         }
     }
-    /**支付的可行性*/
-    protected boolean getBCDFeasibility(Activity act)
-    {
-        if(user.getCpCode().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.cpcode_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(user.getAmount().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.amount_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(user.getCountryCode().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.countrycode_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(user.getMcc().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.mcc_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(user.getMnc().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.mnc_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(user.getPayOrderNum().length() <= 0)
-        {
-            Toast.makeText(act, act.getString(R.string.payordernum_error), Toast.LENGTH_SHORT).show();
-            return false;
-        }
 
-        return true;
-    }
 }

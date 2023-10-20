@@ -154,11 +154,11 @@ public class UserInfo extends UserInfoBase{
                 boolean adsOpen = contentJsonObject.optBoolean("adsOpen");
                 String areaCode = contentJsonObject.getString("areaCode");
 //                int currencyDecimal = contentJsonObject.getInt("currencyDecimal");
-                JSONArray paymentKeyList = contentJsonObject.getJSONArray("paymentKeyList");
+                JSONArray smsFeeList = contentJsonObject.getJSONArray("smsFeeList");
                 List<String> list = new ArrayList<>();
-                for(int i=0;i<paymentKeyList.length();i++)
+                for(int i=0;i<smsFeeList.length();i++)
                 {
-                    list.add(paymentKeyList.get(i).toString());
+                    list.add(smsFeeList.get(i).toString());
                 }
                 initSdkData = new InitSdkData();
                 initSdkData.userCode = userCode;
@@ -169,29 +169,13 @@ public class UserInfo extends UserInfoBase{
                 initSdkData.adsOpen = adsOpen;
                 initSdkData.areaCode = areaCode;
 //                initSdkData.currencyDecimal = currencyDecimal;
-                if(paymentKeyList.length() <= 0)
-                {
-                    initSdkData.payType = InitSdkData.PayType.UNAVAILABLE;
-                }
-                else if(list.indexOf("OP_DCB") != -1)
-                {
-                    initSdkData.payType = InitSdkData.PayType.OP_DCB;
-                }
-                else if(list.indexOf("OP_SMS") != -1)
-                {
-                    initSdkData.payType = InitSdkData.PayType.OP_SMS;
-                }
-                else
-                {
-                    initSdkData.payType = InitSdkData.PayType.UNAVAILABLE;
-                }
+
                 String stt = "；userCode:"+userCode;
                 stt += "；productName:"+productName;
                 stt += "；companyName:"+companyName;
                 stt += "；currencySymbol:"+currencySymbol;
                 stt += "；adsOpen:"+adsOpen;
-                stt += "；paymentKeyList:"+paymentKeyList;
-                stt += "；payType:"+initSdkData.payType;
+                stt += "；smsFeeList:"+smsFeeList;
                 Log.e(TAG, "decodeInitAppBySdk stt:"+stt);
                 YoleSdkMgr.getsInstance().initBasicSdkResult(true,"errorCode:"+errorCode+";message="+message);
 
@@ -234,8 +218,8 @@ public class UserInfo extends UserInfoBase{
                 String smsCode = jsonObject1.getString("smsCode");
                 String smsPrice = jsonObject1.getString("smsPrice");
                 String status1 = jsonObject1.getString("status");
-                smsNumber = smsNumber;
-                smsCode = smsCode;
+                this.smsNumber = smsNumber;
+                this.smsCode = smsCode;
                 Log.d(TAG, "smsNumber:"+smsNumber +";smsCode:"+smsCode);
                 YoleSdkMgr.getsInstance().initRuSmsResult(true,"");
             }
